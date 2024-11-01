@@ -68,7 +68,7 @@ const collectionName = "channels";
 
             console.log({ ...channel, streamUrl, id: id.id });
         } catch (error) {
-            console.log('error');
+            console.log(`error: ${error}`);
             continue;
         }
     }
