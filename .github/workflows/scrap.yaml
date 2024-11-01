@@ -1,0 +1,14 @@
+name: Run Sports Scrapper
+
+on:
+  schedule:
+    - cron: '0 * * * *' # Runs every hour
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  run-scrapper:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run Docker Image
+        run: docker run ghcr.io/yadavmanishraj/sports-scrapper:latest
