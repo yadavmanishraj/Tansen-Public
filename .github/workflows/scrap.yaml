@@ -10,5 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Run Docker Image
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Authenticate Docker
+        run: echo "${{ secrets.SCRPPER_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Run Sports Scrapper
         run: docker run ghcr.io/yadavmanishraj/sports-scrapper:latest
